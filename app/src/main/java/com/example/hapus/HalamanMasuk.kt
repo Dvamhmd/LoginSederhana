@@ -31,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -48,6 +49,8 @@ fun HalamanMasuk(navController: NavController){
     var error by remember { mutableStateOf(false) }
 
     var salah by remember { mutableStateOf("") }
+
+    val textPudar = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Color(0xFF989898))
 
     Column{
         Surface(
@@ -71,7 +74,8 @@ fun HalamanMasuk(navController: NavController){
                     fontSize = 24.sp,
                     color = Color(0xFF304D30),
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(14.dp)
+                    modifier = Modifier.padding(14.dp),
+
                 )
             }
         }
@@ -98,7 +102,7 @@ fun HalamanMasuk(navController: NavController){
             OutlinedTextField(
                 value = username,
                 onValueChange = { username = it },
-                placeholder = { Text(text = "Masukkan Username") },
+                placeholder = { Text(text = "Masukkan Username", style = textPudar) },
                 shape = RoundedCornerShape(24.dp),
                 colors = TextFieldDefaults.colors(
                     unfocusedIndicatorColor = Color.Transparent,
@@ -122,7 +126,7 @@ fun HalamanMasuk(navController: NavController){
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                placeholder = { Text(text = "Masukkan Password") },
+                placeholder = { Text(text = "Masukkan Password",style = textPudar) },
                 shape = RoundedCornerShape(24.dp),
                 colors = TextFieldDefaults.colors(
                     unfocusedIndicatorColor = Color.Transparent,
